@@ -3,7 +3,6 @@ package net.flawlesslogic.musicalbraincrutch;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 
 import java.util.ArrayList;

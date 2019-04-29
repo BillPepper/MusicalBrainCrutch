@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class MusicEntryAdapter extends ArrayAdapter<MusicEntry> {
     public MusicEntryAdapter(Context context, ArrayList<MusicEntry> SongEntry) {
         super(context, 0, SongEntry);
+
     }
 
     @Override
@@ -35,5 +36,7 @@ public class MusicEntryAdapter extends ArrayAdapter<MusicEntry> {
 
         return convertView;
     }
+
+
 
 }
