@@ -6,17 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MusicEntryAdapter extends ArrayAdapter<MusicEntry> {
-    public MusicEntryAdapter(Context context, ArrayList<MusicEntry> SongEntry) {
+    MusicEntryAdapter(Context context, ArrayList<MusicEntry> SongEntry) {
         super(context, 0, SongEntry);
 
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         MusicEntry musicEntry = getItem(position);
 
         if (convertView == null) {
@@ -33,6 +34,16 @@ public class MusicEntryAdapter extends ArrayAdapter<MusicEntry> {
         capoPosition.setText("Capo: " + Integer.toString(musicEntry.capoPosition));
         tuning.setText(musicEntry.tuning);
 
+        convertView.findViewById(R.id.loMusicElement).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CharSequence text = "Hello " + position;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(getContext(), text, duration);
+                toast.show();
+            }
+        });
         return convertView;
     }
 
