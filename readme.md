@@ -7,5 +7,4 @@ to look up chords, lyrics or capo positions when you play live.
 
 Later on it will be sortable and searchable.
 
-![alt text](screenshot.png)
-
+![alt text](https://raw.githubusercontent.com/BillPepper/MusicalBrainCrutch/master/Screenshot.png)
