@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void handleItemClick(int pos){
-        CharSequence text = "You clicked " + arrSongList.get(pos).songNam;
+        CharSequence text = "You clicked " + arrSongList.get(pos).songName;
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(getBaseContext(), text, duration);
