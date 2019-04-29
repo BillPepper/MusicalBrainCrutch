@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.wtf("add", "clicked add");
+                handleAddClick();
             }
         });
     }
@@ -78,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getBaseContext(), text, duration);
         toast.show();
         Intent intent = new Intent(this, DebugActivity.class).putExtra("songName", arrSongList.get(pos).songName).putExtra("songArtist", arrSongList.get(pos).songArtist);
+        startActivity(intent);
+    }
+
+    protected void handleAddClick(){
+        Intent intent = new Intent(this, AddActivity.class);
         startActivity(intent);
     }
 }
