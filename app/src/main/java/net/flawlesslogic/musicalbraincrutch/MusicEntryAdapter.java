@@ -30,7 +30,7 @@ public class MusicEntryAdapter extends ArrayAdapter<MusicEntry> {
 
         songName.setText(musicEntry.songName);
         songArtist.setText(musicEntry.songArtist);
-        capoPosition.setText(Integer.toString(musicEntry.capoPosition));
+        capoPosition.setText("Capo: " + Integer.toString(musicEntry.capoPosition));
         tuning.setText(musicEntry.tuning);
 
         return convertView;
