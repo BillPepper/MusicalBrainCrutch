@@ -2,6 +2,7 @@ package net.flawlesslogic.musicalbraincrutch;
 
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -61,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         uiSongList.addView(songList);
+
+        FloatingActionButton addButton = findViewById(R.id.btnAdd);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.wtf("add", "clicked add");
+            }
+        });
     }
 
     protected void handleItemClick(int pos){
@@ -69,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(getBaseContext(), text, duration);
         toast.show();
-        Intent intent = new Intent(this, DebugActivity.class);
+        Intent intent = new Intent(this, DebugActivity.class).putExtra("songName", arrSongList.get(pos).songName).putExtra("songArtist", arrSongList.get(pos).songArtist);
         startActivity(intent);
     }
 }

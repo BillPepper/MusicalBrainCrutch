@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MusicalBrainCrutch</string>
+    <string name="youSelectedText">You selected\n%1$s \nby\n%2$s</string>
 </resources>
