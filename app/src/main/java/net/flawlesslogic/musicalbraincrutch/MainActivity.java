@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        DatabaseHelper dh = new DatabaseHelper(this);
+        if (dh.addData("testdata")){
+            Log.wtf("success", "success");
+        }
         setupSongList();
     }
 
