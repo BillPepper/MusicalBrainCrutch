@@ -1,6 +1,5 @@
 package net.flawlesslogic.musicalbraincrutch;
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,10 +23,10 @@ public class MusicEntryAdapter extends ArrayAdapter<MusicEntry> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_music_entry, parent, false);
         }
 
-        TextView songName = (TextView) convertView.findViewById(R.id.tvSongName);
-        TextView songArtist = (TextView) convertView.findViewById(R.id.tvSongArtist);
-        TextView capoPosition = (TextView) convertView.findViewById(R.id.tvCapoPosition);
-        TextView tuning = (TextView) convertView.findViewById(R.id.tvTuning);
+        TextView songName = convertView.findViewById(R.id.tvSongName);
+        TextView songArtist = convertView.findViewById(R.id.tvSongArtist);
+        TextView capoPosition = convertView.findViewById(R.id.tvCapoPosition);
+        TextView tuning = convertView.findViewById(R.id.tvTuning);
 
         songName.setText(musicEntry.songName);
         songArtist.setText(musicEntry.songArtist);

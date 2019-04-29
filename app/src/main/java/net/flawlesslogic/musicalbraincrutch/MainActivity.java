@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<MusicEntry> arrSongList = new ArrayList<MusicEntry>();
+    ArrayList<MusicEntry> arrSongList = new ArrayList<>();
     MusicEntry s1 = new MusicEntry(1, "Toe to Toes", "Mastodon", 0, "EADGBE");
     MusicEntry s2 = new MusicEntry(2, "Chan chan", "Buena Vista Social Club", 5, "EADGBE");
     MusicEntry s3 = new MusicEntry(3, "Just Jamming", "Gramatik", 2, "EADGBE");
