@@ -1,5 +1,6 @@
 package net.flawlesslogic.musicalbraincrutch;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -68,5 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(getBaseContext(), text, duration);
         toast.show();
+        Intent intent = new Intent(this, DebugActivity.class);
+        startActivity(intent);
     }
 }
