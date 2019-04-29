@@ -31,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
         arrSongList.add(s3);
         arrSongList.add(s4);
         arrSongList.add(s5);
+        arrSongList.add(s1);
+        arrSongList.add(s2);
+        arrSongList.add(s3);
+        arrSongList.add(s4);
+        arrSongList.add(s5);
+        arrSongList.add(s1);
+        arrSongList.add(s2);
+        arrSongList.add(s3);
+        arrSongList.add(s4);
+        arrSongList.add(s5);
 
         MusicEntryAdapter musicEntryAdapter = new MusicEntryAdapter(this, arrSongList);
 
