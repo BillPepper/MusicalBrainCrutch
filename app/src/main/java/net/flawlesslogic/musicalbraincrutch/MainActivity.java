@@ -77,7 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(getBaseContext(), text, duration);
         toast.show();
-        Intent intent = new Intent(this, DebugActivity.class).putExtra("songName", arrSongList.get(pos).songName).putExtra("songArtist", arrSongList.get(pos).songArtist);
+        Intent intent = new Intent(this, DebugActivity.class)
+                .putExtra("songName", arrSongList.get(pos).songName)
+                .putExtra("songArtist", arrSongList.get(pos).songArtist);
+        
         startActivity(intent);
     }
 

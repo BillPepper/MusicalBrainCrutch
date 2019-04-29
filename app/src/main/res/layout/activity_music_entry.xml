@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/loMusicElement"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
     <LinearLayout
         android:id="@+id/loSongInfos"
@@ -33,7 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="tuning"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary" />
 
         </LinearLayout>
 
@@ -52,7 +55,8 @@
                 android:id="@+id/tvCapoPosition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="capo position" />
+                android:text="capo position"
+                android:textColor="@color/colorAccent" />
         </LinearLayout>
 
     </LinearLayout>
