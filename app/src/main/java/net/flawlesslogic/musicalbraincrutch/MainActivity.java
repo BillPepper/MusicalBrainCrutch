@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     MusicEntry s1 = new MusicEntry(1, "Toe to Toes", "Mastodon", 0, "EADGBE");
     MusicEntry s2 = new MusicEntry(2, "Chan chan", "Buena Vista Social Club", 5, "EADGBE");
     MusicEntry s3 = new MusicEntry(3, "Just Jamming", "Gramatik", 2, "EADGBE");
-    MusicEntry s4 = new MusicEntry(3, "Nothing Else Matters", "Metallica", 2, "EADGBE");
+    MusicEntry s4 = new MusicEntry(3, "Nothing Else Matters the Cover with a really long text", "Metallica", 2, "EADGBE");
     MusicEntry s5 = new MusicEntry(3, "Celito Lindo", "Unknown", 2, "EADGBE");
 
 

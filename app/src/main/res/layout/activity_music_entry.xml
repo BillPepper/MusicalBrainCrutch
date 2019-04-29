@@ -23,7 +23,7 @@
 
             <TextView
                 android:id="@+id/tvSongName"
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:text="song name"
                 android:textSize="22sp" />
@@ -31,8 +31,9 @@
             <TextView
                 android:id="@+id/tvTuning"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="tuning" />
+                android:layout_height="wrap_content"
+                android:text="tuning"
+                android:textAllCaps="true" />
 
         </LinearLayout>
 
@@ -43,7 +44,7 @@
 
             <TextView
                 android:id="@+id/tvSongArtist"
-                android:layout_width="300dp"
+                android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:text="song artist" />
 
