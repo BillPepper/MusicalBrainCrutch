@@ -34,16 +34,6 @@ public class MusicEntryAdapter extends ArrayAdapter<MusicEntry> {
         capoPosition.setText("Capo: " + Integer.toString(musicEntry.capoPosition));
         tuning.setText(musicEntry.tuning);
 
-        convertView.findViewById(R.id.loMusicElement).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CharSequence text = "Hello " + position;
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(getContext(), text, duration);
-                toast.show();
-            }
-        });
         return convertView;
     }
 

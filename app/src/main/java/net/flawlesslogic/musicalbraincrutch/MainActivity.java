@@ -3,7 +3,11 @@ package net.flawlesslogic.musicalbraincrutch;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -48,6 +52,21 @@ public class MainActivity extends AppCompatActivity {
         ListView songList = new ListView(this);
         songList.setAdapter(musicEntryAdapter);
 
+        songList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                handleItemClick(position);
+            }
+        });
+
         uiSongList.addView(songList);
+    }
+
+    protected void handleItemClick(int pos){
+        CharSequence text = "You clicked " + arrSongList.get(pos).songNam;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(getBaseContext(), text, duration);
+        toast.show();
     }
 }
