@@ -39,12 +39,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean addData(String item) {
+    public boolean addData(String songName, String songArtist, int capoPos, String tuning) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(SONG_NAME, item);
+        contentValues.put(SONG_NAME, songName);
+        contentValues.put(SONG_ARTIST, songArtist);
+        contentValues.put(CAPO_POS, capoPos);
+        contentValues.put(TUNING, tuning);
 
-        Log.d("database", "addData: Adding " + item + " to " + TABLE_NAME);
+        Log.d("database", "addData: Adding " + songName + " to " + TABLE_NAME);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 

@@ -21,16 +21,13 @@ public class MainActivity extends AppCompatActivity {
     MusicEntry s4 = new MusicEntry(3, "Nothing Else Matters the Cover with a really long text", "Metallica", 2, "EADGBE");
     MusicEntry s5 = new MusicEntry(3, "Celito Lindo", "Unknown", 2, "EADGBE");
 
+    DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DatabaseHelper dh = new DatabaseHelper(this);
-        if (dh.addData("testdata")){
-            Log.wtf("success", "success");
-        }
         setupSongList();
     }
 
@@ -89,7 +86,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void handleAddClick(){
-        Intent intent = new Intent(this, AddActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, AddActivity.class);
+//        startActivity(intent);
+        String TAG = "clickhandler";
+
+        if (databaseHelper.addData("Curl of the Burl", "Mastodon", 0, "CFBEGC")){
+            Log.d(TAG, "handleAddClick: added data");
+        }
     }
 }
