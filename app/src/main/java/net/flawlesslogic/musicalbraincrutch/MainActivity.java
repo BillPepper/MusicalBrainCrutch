@@ -1,26 +1,21 @@
 package net.flawlesslogic.musicalbraincrutch;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<MusicEntry> arrSongList = new ArrayList<>();
-    MusicEntry s1 = new MusicEntry(1, "Toe to Toes", "Mastodon", 0, "EADGBE");
-    MusicEntry s2 = new MusicEntry(2, "Chan chan", "Buena Vista Social Club", 5, "EADGBE");
-    MusicEntry s3 = new MusicEntry(3, "Just Jamming", "Gramatik", 2, "EADGBE");
-    MusicEntry s4 = new MusicEntry(3, "Nothing Else Matters the Cover with a really long text", "Metallica", 2, "EADGBE");
-    MusicEntry s5 = new MusicEntry(3, "Celito Lindo", "Unknown", 2, "EADGBE");
-
     DatabaseHelper databaseHelper = new DatabaseHelper(this);
 
     @Override
@@ -32,21 +27,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void setupSongList(){
-        arrSongList.add(s1);
-        arrSongList.add(s2);
-        arrSongList.add(s3);
-        arrSongList.add(s4);
-        arrSongList.add(s5);
-        arrSongList.add(s1);
-        arrSongList.add(s2);
-        arrSongList.add(s3);
-        arrSongList.add(s4);
-        arrSongList.add(s5);
-        arrSongList.add(s1);
-        arrSongList.add(s2);
-        arrSongList.add(s3);
-        arrSongList.add(s4);
-        arrSongList.add(s5);
+        Cursor c = databaseHelper.getAllEntries();
+        if (c != null){
+            c.moveToFirst();
+        } do  {
+            MusicEntryFactory mf = new MusicEntryFactory();
+            arrSongList.add(mf.getMusicEntry(
+                    c.getInt(0),
+                    c.getString(1),
+                    c.getString(2),
+                    c.getInt(3),
+                    c.getString(4)
+            ));
+        } while (c.moveToNext());
+
+        c.close();
+
 
         MusicEntryAdapter musicEntryAdapter = new MusicEntryAdapter(this, arrSongList);
 
@@ -86,12 +82,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void handleAddClick(){
-//        Intent intent = new Intent(this, AddActivity.class);
-//        startActivity(intent);
-        String TAG = "clickhandler";
+        Intent intent = new Intent(this, AddActivity.class);
+        startActivity(intent);
 
-        if (databaseHelper.addData("Curl of the Burl", "Mastodon", 0, "CFBEGC")){
-            Log.d(TAG, "handleAddClick: added data");
-        }
+//        CharSequence toastText = "Something went wrong";
+//
+//        if (databaseHelper.addEntry("Curl of the Burl", "Mastodon", 0, "CFBEGC")){
+//          toastText = "Added entry";
+//        }
+//        Toast t = new Toast(this);
+//        t.makeText(this, toastText, Toast.LENGTH_SHORT );
+//        t.show();
     }
 }

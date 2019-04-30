@@ -2,13 +2,13 @@ package net.flawlesslogic.musicalbraincrutch;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "songs_table";
-    private static final String SONG_ID = "ID";
     private static final String SONG_NAME = "song_name";
     private static final String SONG_ARTIST = "song_arist";
     private static final String CAPO_POS = "capo_position";
@@ -39,7 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean addData(String songName, String songArtist, int capoPos, String tuning) {
+    public boolean addEntry(String songName, String songArtist, int capoPos, String tuning) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(SONG_NAME, songName);
@@ -57,5 +57,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
+    }
+
+    public Cursor getAllEntries(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME;
+        Cursor data = db.rawQuery(query, null);
+        return data;
     }
 }
