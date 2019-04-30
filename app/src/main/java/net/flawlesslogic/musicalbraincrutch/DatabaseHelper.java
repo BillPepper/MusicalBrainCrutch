@@ -9,9 +9,9 @@ import android.util.Log;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "songs_table";
     private static final String SONG_ID = "ID";
-    private static final String SONG_NAME = "name";
-    private static final String SONG_ARTIST = "arist";
-    private static final String CAPO_POS = "capo";
+    private static final String SONG_NAME = "song_name";
+    private static final String SONG_ARTIST = "song_arist";
+    private static final String CAPO_POS = "capo_position";
     private static final String TUNING = "tuning";
 
     private static final int VERSION = 1;
@@ -24,8 +24,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable =
-                "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                SONG_NAME + " TEXT," + SONG_ARTIST + "TEXT, " + CAPO_POS + "TEXT, " + TUNING + "TEXT)";
+                "CREATE TABLE " + TABLE_NAME + " (" +
+                "ID INTEGER PRIMARY KEY AUTOINCREMENT, `" +
+                SONG_NAME + "` TEXT,`" +
+                SONG_ARTIST +"`TEXT,`" +
+                CAPO_POS + "`INTEGER,`" +
+                TUNING + "`TEXT" +
+                ")";
         db.execSQL(createTable);
     }
 
