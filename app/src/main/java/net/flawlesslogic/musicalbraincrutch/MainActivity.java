@@ -6,6 +6,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -26,8 +27,15 @@ public class MainActivity extends AppCompatActivity {
         setupSongList();
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        this.setupSongList();
+    }
+
     protected void setupSongList(){
         Cursor c = databaseHelper.getAllEntries();
+        try {
         if (c != null){
             c.moveToFirst();
         } do  {
@@ -41,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
             ));
         } while (c.moveToNext());
 
-        c.close();
+        c.close();} catch (Exception e) {
+            Log.e("songlist", "setupSongList: can't load data", e);
+        }
 
 
         MusicEntryAdapter musicEntryAdapter = new MusicEntryAdapter(this, arrSongList);
